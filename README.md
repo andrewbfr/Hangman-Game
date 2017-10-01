@@ -28,3 +28,14 @@
 	2. alert, if false (cancel), putting word back into word bucket to call again later
 
 -Consider two themes, selectable with a prompt (Boolean), choosing "rock-climbing" or "outdoor activities"
+
+
+*Functionality
+
+-eventListeners "document.onkeyup = function(event) {
+        var name.textContent = event.key;
+      };"
+
+-onKeyUp "document.getElementById"
+
+-how to define limits on number of guesses?
