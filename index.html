@@ -5,37 +5,49 @@
 	<title>Hangman</title>
 	<link rel="stylesheet" type="text/css" href="assets/css/resets.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
+	<script
+  		src="https://code.jquery.com/jquery-3.2.1.js"
+  		integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  		crossorigin="anonymous">
+  			
+  	</script>
 </head>
 <body>
 <div class="container">
 
-	<div id="any">
+	<div class="send">
 		<h2>Press Any key to Get Started!</h2>	
 	</div>
 
-	<div id="current">
+	<div class="send">
+		<span id="correct">I can't Be empty, yet.</span>
 		
 	</div>
 
-	<div id="guessed">
+	<div id="burner">_______</div>
+
+	<div class="send">
+		<span id="guessed"></span>
+	</div>
+
+	<div class="send">
+		<span id="wins"></span>
 		
 	</div>
 
-	<div id="wins">
-		
-	</div>
-
-	<div id="losses">
+	<div class="send">
+		<span id="losses"></span>
 		
 	</div>
 
 	
 
+	<!-- Maybe this is a kind of bonus for yourself. How to end the looping and present the answer?
 	<div id="reveal">
 		<h6>I give up, show me the answer!
 		</h6>	
-	</div>
+	</div> 
+	-->
 		
 	
 

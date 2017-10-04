@@ -39,3 +39,7 @@
 -onKeyUp "document.getElementById"
 
 -how to define limits on number of guesses?
+
+-start with a for-loop to list each word in a div.
+
+-
