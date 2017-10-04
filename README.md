@@ -2,6 +2,7 @@
 -Initial version of basic hangman game, HTML elements updated by JS.
 
 !Core Layout
+**This will obviously change, is subject to change, deletion, and being ignored
 
 -Display the following on the page:
 
