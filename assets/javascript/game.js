@@ -1,5 +1,7 @@
 
-// try this as a dual-page game later
+
+$(document).ready(function(){
+	// try this as a dual-page game later
 var rockBucket = ["whipper, cam-a-lot, tri-cam, rope, sticky, figure-eight, granite, sloper, sandstone"]
 
 // use this for the game
@@ -18,14 +20,18 @@ var randomWord = ""
 $( "#correct" ).click(function() {
   alert( "Hi, I work." );
 });
+
 //nice start
 console.log("a");
 
-$( "#burner").click(function() {
-	var random = skiBucket[Math.floor(Math.random()*skiBucket.length)];
-	 $("#burner").text(random);
-	});
+
+$(document).keyup(function() {
+    $("#guessed").css("background-color", "pink");
+    });
+
 console.log("b");
+
+});
 
 
 

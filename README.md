@@ -43,4 +43,6 @@
 
 -start with a for-loop to list each word in a div.
 
--
+-.attr(display:hidden) as long as the guess is incorrect, so if "correct guess"
+
+		else attr.(display: hidden)
