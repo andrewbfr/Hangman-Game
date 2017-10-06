@@ -7,8 +7,29 @@ var rockBucket = ["whipper, cam-a-lot, tri-cam, rope, sticky, figure-eight, gran
 // use this for the game
 var skiBucket = ["tomahawk, full-send, camber, rocker, avalanche, powder, pow-day, whipper, cam-a-lot, tri-cam, rope, sticky, figure-eight, granite, sloper, sandstone"]
 
+//nice start
+	console.log("a");
 
-var randomWord = ""
+	$(document).keyup(function() {
+	function generateWord() {
+
+	console.log("b");
+   //	return skiBucket[Math.floor(Math.random() * skiBucket.length)];
+   	var rand = skiBucket[Math.floor(Math.random() * skiBucket.length)];
+	$("#correct").text(rand);
+
+	};
+
+	console.log("c");
+
+	});
+
+
+	// var rand = skiBucket[Math.floor(Math.random() * skiBucket.length)];
+	// $("#correct").text(rand);
+
+
+
 
 
 //this is rewriting the entire element, not accruing letters
@@ -17,21 +38,21 @@ var randomWord = ""
 //use the div for styling purposed and the "span" for holding text.
 //make sure it begins to accrue letters
 
-$( "#correct" ).click(function() {
-  alert( "Hi, I work." );
-});
-
-//nice start
-console.log("a");
 
 
-$(document).keyup(function() {
-    $("#guessed").css("background-color", "pink");
-    });
 
-console.log("b");
 
-});
+
+
+
+
+
+
+
+
+
+
+ });//closing document.ready
 
 
 
