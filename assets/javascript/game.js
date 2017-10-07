@@ -1,75 +1,109 @@
+var correctGuesses = [];
+var wrongGuesses = [];
 
 
 $(document).ready(function(){
 	var newWord = generateWord();
 		// $("#correct").text(newWord);
 		console.log(newWord);
-// use this for the game
-
-//nice start
-
 	// $(document).keyup(function() {
-		
-
 	// });
-
-
 
  });//closing document.ready
 
-var skiBucket = ["tomahawk", "full-send", "camber", "rocker", "avalanche", "powder", "pow-day", "whipper", "cam-a-lot", "tri-cam", "rope", "sticky", "figure-eight", "granite", "sloper", "sandstone"];
 
 
 function generateWord() {
-
-  	var skiNumber = Math.floor(Math.random() * skiBucket.length);
+	var skiBucket = ["tomahawk", "full-send", "camber", "rocker", "avalanche", "powder", "pow-day", "whipper", "cam-a-lot", "tri-cam", "rope", "sticky", "figure-eight", "granite", "sloper", "sandstone"];
+ 	var skiNumber = Math.floor(Math.random() * skiBucket.length);
    	var rand = skiBucket[skiNumber];
    	return rand;
 
-	}
+	};
 
-var guessedLetters = [];
+// var char = event.which || event.keyCode;
+    // document.getElementById("demo").innerHTML = "The Unicode CHARACTER code is: " + char;
 
-      var updateGuessesSoFar = function() {
-      // Here we take the guesses the user has tried -- then display it as letters separated by commas.
-      document.querySelector("#guesses-so-far").innerHTML = guessedLetters.join(", ");
+
+function saveWrongGuesses(character){
+	document.onkeyup = function() {
+	var char = event.which;
+	document.querySelector("#guessed").innerHTML = wrongGuesses.join(", " + char);
+	return
+	console.log(char);
+}
+};
+
+// <script>
+// document.getElementById("fname").onkeyup = function() {myFunction()};
+
+// function myFunction() {
+//     var x = document.getElementById("fname");
+//     x.value = x.value.toUpperCase();
+// }
+// </script>
+
+
+
+// function showCorrectGuesses(character){
+
+
+// };
+
+
+
+// function checkIfCharPresent(word, character){
+// 	if (word.includes(character)){ 
+// 		return true;
+
+// 	}
+// 	else {
+// 		return false;
+// 	}
+// };
+
+// function finishFail(){
+// 	//if length of var array in guessed letters is = 15, game fails
+// 	//and moves to a new word, emptying the letter guess storage divs
+// 	if (wrongGuesses.length = 15)
+// 	{
+
+// 		generateWord();
+// 	}
+	
+// 			//else, continue putting letters into guessed letter array
+// 			//and storage divs
+// 	};
+
+  
+     // Here we take the guesses the user has tried -- then display it as letters
+     //separated by commas.
+     
 
       
 
-    };
+    
 
-    document.onkeyup = function(event) {
-      
-      
+    // document.onkeyup = function(event) {
+    //   var letter = String.fromCharCode(event.keyCode).toLowerCase();
+    //   wrongGuesses.push(letter);
 
-      // Lowercase the letter
-      var letter = String.fromCharCode(event.keyCode).toLowerCase();
-
-      // Then add the guess to the guessedLetters array
-      guessedLetters.push(letter);
-
-      updateGuessesSoFar();
+    //   updateGuessesSoFar();
 
 
-      }
+    //   };
+
+
+
+      // Lowercase the letter, previoulsy inside onkeyup function
+      // 
+
+      // Then add the guess to the wrongGuesses array
+     
 	//developing functions for each step in the process
-function showCorrectGuesses(character){
 
-}
 
-function saveIncorrectGuesses(character){
 
-}
-
-function checkIfCharPresent(word, character){
-	if (word.includes(character)){ 
-		return true;
-
-	}
-	else {
-		return false;
-	}
-}
 
 
 //Game can choose a random string from the array, the whole page can listen to the onkey 
