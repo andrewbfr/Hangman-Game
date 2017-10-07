@@ -1,16 +1,17 @@
 
 
 $(document).ready(function(){
-
+	var newWord = generateWord();
+		// $("#correct").text(newWord);
+		console.log(newWord);
 // use this for the game
 
 //nice start
 
-	$(document).keyup(function() {
-		var newWord = generateWord();
-		$("#correct").text(newWord);
+	// $(document).keyup(function() {
+		
 
-	});
+	// });
 
 
 
@@ -27,6 +28,30 @@ function generateWord() {
 
 	}
 
+var guessedLetters = [];
+
+      var updateGuessesSoFar = function() {
+      // Here we take the guesses the user has tried -- then display it as letters separated by commas.
+      document.querySelector("#guesses-so-far").innerHTML = guessedLetters.join(", ");
+
+      
+
+    };
+
+    document.onkeyup = function(event) {
+      
+      
+
+      // Lowercase the letter
+      var letter = String.fromCharCode(event.keyCode).toLowerCase();
+
+      // Then add the guess to the guessedLetters array
+      guessedLetters.push(letter);
+
+      updateGuessesSoFar();
+
+
+      }
 	//developing functions for each step in the process
 function showCorrectGuesses(character){
 
@@ -46,6 +71,21 @@ function checkIfCharPresent(word, character){
 	}
 }
 
+
+//Game can choose a random string from the array, the whole page can listen to the onkey 
+//events, append the onkey events to an html element, 
+
+//Would like the random word generator to select an array value once and hold it until 
+//the guessed div string equals the string from the random word generator. 
+
+//Want the game to display guessed characters not present in the random word generated 
+//string inside another div.
+
+//want to have a counter, 15 onkeyup events permitted to get the guessed string values 
+// equal to the randomWord
+
+//alert some message when the two strings are equal. can strings be "equal"? or 
+//is that only a relevant thing for numbers
 
 
 
