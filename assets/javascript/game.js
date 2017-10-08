@@ -1,24 +1,19 @@
-
-
 $(document).ready(function(){
 	var newWord = generateWord();
 		// $("#correct").text(newWord);
 		console.log(newWord);
 	// $(document).keyup(function() {
 
+}); //I don't know why the ready function has to be closed here.
 
 var correctGuesses = [];
 var wrongGuesses = [];
-var skiBucket = ["tomahawk", "full-send", "camber", "rocker", "avalanche", "powder", "pow-day", "whipper", "cam-a-lot", "tri-cam", "rope", "sticky", "figure-eight", "granite", "sloper", "sandstone"];
+var skiBucket = ["tomahawk", "fullsend", "camber", "rocker", "avalanche", "powder", "whipper", "camming", "nuts", "rope", "sticky", "bowline", "granite", "sloper", "sandstone"];
 var count = 0;
-var g;
+var pressed;
 var newWord;
 	
-
- 
-
-
-//select random word on initial page load
+//working,   select random word on initial page load
 function generateWord() {
  	var skiNumber = Math.floor(Math.random() * skiBucket.length);
    	var rand = skiBucket[skiNumber];
@@ -26,43 +21,52 @@ function generateWord() {
 
 	};
 
+// var ccNum; // declaration in an outer scope
+// //from stack overflow
+// $('#authorizenet_cc_number').keyup(function(){
+//     // no need to reselect on the input, just use "this"
+//     ccNum = $(this).val(); // initialization in an inner scope
+//     console.log(ccNum); // logs the value
+// });
 
+// console.log(ccNum); // also logs the value (if called after the handler has fired)
+
+//try to copy to this use, which is a global listener storing new keyup events
+//in the variable "pressed"
+
+$( document ).on( "keyup", function( event ) {
+  $( "#wrong" ).append( event.type + ": " +  event.which );
+});
+
+// $(document).keypress(function () {
+// 	pressed = $(this)
+
+// 	};
 //put guesses of characters not present in the randomly generated word into
 //a specified div
 
-function saveWrongGuesses(){
-		for (var i = 0; i < newWord.length; i++) 
-	{
-		wrongGuesses[i] = "_";
-	}
-	g = wrongGuesses.join(" ");
-	document.getElementById("#guessed").innerHTML = g;
-	}	
-});
+function showIncorrectGuesses(wrongGuess) {
+  wrongGuesses.push(wrongGuess);
+  $('#wrong').text(wrongGuesses.toString());  
+}
 
-//closing document.ready
+function showCorrectGuesses(correctGuess) {
+  correctGuesses.push(correctGuess);  
+  $('#correct').text(correctGuesses.toString());
+}
 
+function checkGuess(word, key) {
+  return word.includes(key);
+}
 
-// document.onkeyup = function() {
-// 	var char = event.which || event.keyCode;
-// 	document.getElementById("#guessed").innerHTML = wrongGuesses.join(", " + char);
-// 	return
-// 	console.log(char);
-// <script>
-// document.getElementById("fname").onkeyup = function() {myFunction()};
-
-// function myFunction() {
-//     var x = document.getElementById("fname");
-//     x.value = x.value.toUpperCase();
-// }
-// </script>
+ 
 
 
 
-// function showCorrectGuesses(character){
+// function showCorrectGuesses(character){};
 
 
-// };
+
 
 
 
@@ -92,29 +96,6 @@ function saveWrongGuesses(){
   
      // Here we take the guesses the user has tried -- then display it as letters
      //separated by commas.
-     
-
-      
-
-    
-
-    // document.onkeyup = function(event) {
-    //   var letter = String.fromCharCode(event.keyCode).toLowerCase();
-    //   wrongGuesses.push(letter);
-
-    //   updateGuessesSoFar();
-
-
-    //   };
-
-
-
-      // Lowercase the letter, previoulsy inside onkeyup function
-      // 
-
-      // Then add the guess to the wrongGuesses array
-     
-	//developing functions for each step in the process
 
 
 
