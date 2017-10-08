@@ -34,11 +34,25 @@ function generateWord() {
 //try to copy to this use, which is a global listener storing new keyup events
 //in the variable "pressed"
 
-$( document ).on( "keyup", function( event ) {
-  $( "#wrong" ).append( event.type + ": " +  event.which );
-  	var guessedLetter = String.fromCharCode();
-  	console.log(guessedLetter);
-  	console.log("a");
+// $( document ).on( "keyup", function( event ) {
+//   $( "#wrong" ).append( event.type + ": " +  event.which );
+//   	var guessedLetter = String.fromCharCode(event);
+//   	console.log(event);
+//   	console.log("a");
+// });
+
+// window.addEventListener("keyup", function (event);
+// function letterGuessed(){
+// 	document
+// 	var guessedLetter = String.fromCharCode(event); 
+
+// };
+$( document ).on("keyup", function(){
+	function uniCharCode(event) {
+    var key = event.keyCode;
+    $("#wrong").append(key);
+    console.log(key);
+}
 });
 
 // $(document).keypress(function () {
