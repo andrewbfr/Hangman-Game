@@ -29,13 +29,15 @@ var pressed =
     var key = event.keyCode;
     var guessedLetter = String.fromCharCode(key);
     console.log(guessedLetter);
-    $("#wrong").append(guessedLetter);
+    // $("#wrong").append(guessedLetter);
+    // this line isn't needed anymore
 });
 	//this is finally FINALLY working..........
 
 
 	console.log(pressed);
 	//although its logging the entire document..
+	
 //now I need to check if the letter is present in the randomWord, 
 //which is the value of newWord.
 
