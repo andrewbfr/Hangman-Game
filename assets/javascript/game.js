@@ -36,6 +36,9 @@ function generateWord() {
 
 $( document ).on( "keyup", function( event ) {
   $( "#wrong" ).append( event.type + ": " +  event.which );
+  	var guessedLetter = String.fromCharCode();
+  	console.log(guessedLetter);
+  	console.log("a");
 });
 
 // $(document).keypress(function () {
