@@ -2,9 +2,10 @@ $(document).ready(function(){
 	var newWord = generateWord();
 		// $("#correct").text(newWord);
 		console.log(newWord);
-	// $(document).keyup(function() {
+	
 
 }); //I don't know why the ready function has to be closed here.
+//could also cause some scoping issues later on..
 
 var correctGuesses = [];
 var wrongGuesses = [];
@@ -22,13 +23,15 @@ function generateWord() {
 	};
 
 
-
-$( document ).on("keyup", function uniCharCode(event){
+//does this work? trying it
+var pressed = 
+	$( document ).on("keyup", function uniCharCode(event){
     var key = event.keyCode;
     var guessedLetter = String.fromCharCode(key);
     console.log(guessedLetter);
     $("#wrong").append(guessedLetter);
 });
+	console.log(pressed);
 //this is finally FINALLY working..........
 //now I need to check if the letter is present in the random word, 
 //which is the value of newWord.
@@ -43,17 +46,23 @@ $('#authorizenet_cc_number').keyup(function(){
 });
 
 console.log(ccNum); // also logs the value (if called after the handler has fired)
+
 //how do I insert "newWord" and "guessedLetter" into this funciton as ...arguments?
 //scope is difficult to manage this way
-
-var checkPresence = function(){
+//I have a random word and key press events stored as variables.
+//i want to see if the string value of random word contains the char from
+//key press events.
+// IF this returns as present (true) then I want it to display (inner.HTML or .append) 
+//in #correct span
+//else, display (inner.HTML or .append) in "#wrong"
+function(){
 
 };
-
+//from w3 schools
 string.includes(searchvalue, start)
 function myFunction() {
     var str = "Hello world, welcome to the universe.";
-    var n = str.includes("world", 12);
+    var n = str.includes("world");
     document.getElementById("demo").innerHTML = n;
 }
 
