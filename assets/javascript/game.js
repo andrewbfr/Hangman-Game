@@ -21,39 +21,20 @@ function generateWord() {
 
 	};
 
-// var ccNum; // declaration in an outer scope
-// //from stack overflow
-// $('#authorizenet_cc_number').keyup(function(){
-//     // no need to reselect on the input, just use "this"
-//     ccNum = $(this).val(); // initialization in an inner scope
-//     console.log(ccNum); // logs the value
-// });
 
-// console.log(ccNum); // also logs the value (if called after the handler has fired)
 
-//try to copy to this use, which is a global listener storing new keyup events
-//in the variable "pressed"
-
-// $( document ).on( "keyup", function( event ) {
-//   $( "#wrong" ).append( event.type + ": " +  event.which );
-//   	var guessedLetter = String.fromCharCode(event);
-//   	console.log(event);
-//   	console.log("a");
-// });
-
-// window.addEventListener("keyup", function (event);
-// function letterGuessed(){
-// 	document
-// 	var guessedLetter = String.fromCharCode(event); 
-
-// };
-$( document ).on("keyup", function(){
-	function uniCharCode(event) {
+$( document ).on("keyup", function uniCharCode(event){
     var key = event.keyCode;
-    $("#wrong").append(key);
     console.log(key);
-}
+    var guessedLetter = String.fromCharCode(key);
+    console.log(guessedLetter);
+    $("#wrong").append(guessedLetter);
 });
+
+
+//this is finally FINALLY working..........
+//now I need to check if the letter is present in the random word, 
+//which is the value of newWord.
 
 // $(document).keypress(function () {
 // 	pressed = $(this)
