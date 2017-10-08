@@ -1,5 +1,3 @@
-var correctGuesses = [];
-var wrongGuesses = [];
 
 
 $(document).ready(function(){
@@ -7,33 +5,49 @@ $(document).ready(function(){
 		// $("#correct").text(newWord);
 		console.log(newWord);
 	// $(document).keyup(function() {
-	// });
-
- });//closing document.ready
 
 
+var correctGuesses = [];
+var wrongGuesses = [];
+var skiBucket = ["tomahawk", "full-send", "camber", "rocker", "avalanche", "powder", "pow-day", "whipper", "cam-a-lot", "tri-cam", "rope", "sticky", "figure-eight", "granite", "sloper", "sandstone"];
+var count = 0;
+var g;
+var newWord;
+	
 
+ 
+
+
+//select random word on initial page load
 function generateWord() {
-	var skiBucket = ["tomahawk", "full-send", "camber", "rocker", "avalanche", "powder", "pow-day", "whipper", "cam-a-lot", "tri-cam", "rope", "sticky", "figure-eight", "granite", "sloper", "sandstone"];
  	var skiNumber = Math.floor(Math.random() * skiBucket.length);
    	var rand = skiBucket[skiNumber];
    	return rand;
 
 	};
 
-// var char = event.which || event.keyCode;
-    // document.getElementById("demo").innerHTML = "The Unicode CHARACTER code is: " + char;
+
+//put guesses of characters not present in the randomly generated word into
+//a specified div
+
+function saveWrongGuesses(){
+		for (var i = 0; i < newWord.length; i++) 
+	{
+		wrongGuesses[i] = "_";
+	}
+	g = wrongGuesses.join(" ");
+	document.getElementById("#guessed").innerHTML = g;
+	}	
+});
+
+//closing document.ready
 
 
-function saveWrongGuesses(character){
-	document.onkeyup = function() {
-	var char = event.which;
-	document.querySelector("#guessed").innerHTML = wrongGuesses.join(", " + char);
-	return
-	console.log(char);
-}
-};
-
+// document.onkeyup = function() {
+// 	var char = event.which || event.keyCode;
+// 	document.getElementById("#guessed").innerHTML = wrongGuesses.join(", " + char);
+// 	return
+// 	console.log(char);
 // <script>
 // document.getElementById("fname").onkeyup = function() {myFunction()};
 
