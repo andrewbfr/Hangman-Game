@@ -25,21 +25,38 @@ function generateWord() {
 
 $( document ).on("keyup", function uniCharCode(event){
     var key = event.keyCode;
-    console.log(key);
     var guessedLetter = String.fromCharCode(key);
     console.log(guessedLetter);
     $("#wrong").append(guessedLetter);
 });
-
-
 //this is finally FINALLY working..........
 //now I need to check if the letter is present in the random word, 
 //which is the value of newWord.
 
-// $(document).keypress(function () {
-// 	pressed = $(this)
+//via stack overflow
+var ccNum; // declaration in an outer scope
 
-// 	};
+$('#authorizenet_cc_number').keyup(function(){
+    // no need to reselect on the input, just use "this"
+    ccNum = $(this).val(); // initialization in an inner scope
+    console.log(ccNum); // logs the value
+});
+
+console.log(ccNum); // also logs the value (if called after the handler has fired)
+//how do I insert "newWord" and "guessedLetter" into this funciton as ...arguments?
+//scope is difficult to manage this way
+
+var checkPresence = function(){
+
+};
+
+string.includes(searchvalue, start)
+function myFunction() {
+    var str = "Hello world, welcome to the universe.";
+    var n = str.includes("world", 12);
+    document.getElementById("demo").innerHTML = n;
+}
+
 //put guesses of characters not present in the randomly generated word into
 //a specified div
 
@@ -57,6 +74,14 @@ function checkGuess(word, key) {
   return word.includes(key);
 }
 
+
+//reset function, I think.
+
+function reset(){
+	if (correctGuesses === newWord) {
+		generateWord()
+	}
+}
  
 
 
@@ -68,15 +93,6 @@ function checkGuess(word, key) {
 
 
 
-// function checkIfCharPresent(word, character){
-// 	if (word.includes(character)){ 
-// 		return true;
-
-// 	}
-// 	else {
-// 		return false;
-// 	}
-// };
 
 // function finishFail(){
 // 	//if length of var array in guessed letters is = 15, game fails
