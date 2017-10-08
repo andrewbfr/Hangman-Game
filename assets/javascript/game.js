@@ -31,21 +31,14 @@ var pressed =
     console.log(guessedLetter);
     $("#wrong").append(guessedLetter);
 });
+	//this is finally FINALLY working..........
+
+
 	console.log(pressed);
-//this is finally FINALLY working..........
-//now I need to check if the letter is present in the random word, 
+	//although its logging the entire document..
+//now I need to check if the letter is present in the randomWord, 
 //which is the value of newWord.
 
-//via stack overflow
-var ccNum; // declaration in an outer scope
-
-$('#authorizenet_cc_number').keyup(function(){
-    // no need to reselect on the input, just use "this"
-    ccNum = $(this).val(); // initialization in an inner scope
-    console.log(ccNum); // logs the value
-});
-
-console.log(ccNum); // also logs the value (if called after the handler has fired)
 
 //how do I insert "newWord" and "guessedLetter" into this funciton as ...arguments?
 //scope is difficult to manage this way
@@ -55,33 +48,47 @@ console.log(ccNum); // also logs the value (if called after the handler has fire
 // IF this returns as present (true) then I want it to display (inner.HTML or .append) 
 //in #correct span
 //else, display (inner.HTML or .append) in "#wrong"
-function(){
 
+var checkEm = function() {
+	var check = newWord;
+	var letter = check.includes(pressed);
+	if (letter === true) {
+		$("#correct").append(pressed);
+	}
+		else {
+			$("#wrong").append(pressed);
+		}
 };
+console.log(checkEm);
+//this is logging the whole function
+
+
+//or maybe better as this
+
 //from w3 schools
-string.includes(searchvalue, start)
-function myFunction() {
-    var str = "Hello world, welcome to the universe.";
-    var n = str.includes("world");
-    document.getElementById("demo").innerHTML = n;
-}
+// string.includes(searchvalue, start)
+// function myFunction() {
+//     var str = "Hello world, welcome to the universe.";
+//     var n = str.includes("world");
+//     document.getElementById("demo").innerHTML = n;
+// }
 
 //put guesses of characters not present in the randomly generated word into
 //a specified div
 
-function showIncorrectGuesses(wrongGuess) {
-  wrongGuesses.push(wrongGuess);
-  $('#wrong').text(wrongGuesses.toString());  
-}
+// function showIncorrectGuesses(wrongGuess) {
+//   wrongGuesses.push(wrongGuess);
+//   $('#wrong').text(wrongGuesses.toString());  
+// }
 
-function showCorrectGuesses(correctGuess) {
-  correctGuesses.push(correctGuess);  
-  $('#correct').text(correctGuesses.toString());
-}
+// function showCorrectGuesses(correctGuess) {
+//   correctGuesses.push(correctGuess);  
+//   $('#correct').text(correctGuesses.toString());
+// }
 
-function checkGuess(word, key) {
-  return word.includes(key);
-}
+// function checkGuess(word, key) {
+//   return word.includes(key);
+// }
 
 
 //reset function, I think.
@@ -92,13 +99,6 @@ function reset(){
 	}
 }
  
-
-
-
-// function showCorrectGuesses(character){};
-
-
-
 
 
 
@@ -117,8 +117,6 @@ function reset(){
 // 	};
 
   
-     // Here we take the guesses the user has tried -- then display it as letters
-     //separated by commas.
 
 
 
